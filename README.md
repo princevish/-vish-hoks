@@ -1,4 +1,4 @@
-# @Vish/hooks React Hooks
+# Vish-hooks React Hooks
 
 This project includes a set of custom React hooks. Here are the hooks and their usage examples:
 
@@ -7,7 +7,7 @@ This project includes a set of custom React hooks. Here are the hooks and their 
 This hook allows you to manage focus on a particular element.
 
 ```javascript
-import { useFocus } from '@vish/useFocus';
+import { useFocus } from 'vish-hooks/useFocus';
 
 const Component = () => {
   const [ref, isFocused] = useFocus();
@@ -21,7 +21,7 @@ const Component = () => {
 This hook allows you to check if the component is rendered for the first time.
 
 ```javascript
-import { useIsFirstRender } from '@vish/useIsFirstRender';
+import { useIsFirstRender } from 'vish-hooks/useIsFirstRender';
 
 const Component = () => {
   const isFirstRender = useIsFirstRender();
@@ -35,7 +35,7 @@ const Component = () => {
 This hook allows you to check if the component is mounted.
 
 ```javascript
-import { useIsMounted } from '@vish/useIsMounted';
+import { useIsMounted } from 'vish-hooks/useIsMounted';
 
 const Component = () => {
   const isMounted = useIsMounted();
@@ -51,7 +51,7 @@ This hook allows you to get the previous value of a state.
 
 ```javascript
 
-import { usePrevious } from '@vish/usePrevious';
+import { usePrevious } from 'vish-hooks/usePrevious';
 
 const Component = () => {
   const [count, setCount] = useState(0);
@@ -74,7 +74,7 @@ This hook allows you to fetch data using SWR.
 
 ```javascript
 
-import { useSWR } from '@vish/useSWR';
+import { useSWR } from 'vish-hooks/useSWR';
 
 const Component = () => {
   const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos/1');
@@ -93,7 +93,7 @@ This hook allows you to toggle between two states.
 
 ```javascript
 
-import { useToggle } from '@vish/useToggle';
+import { useToggle } from 'vish-hooks/useToggle';
 
 const Component = () => {
   const [isOn, toggleIsOn] = useToggle(false);
@@ -115,7 +115,7 @@ This hook allows you to set a timeout.
 
 ```javascript
 
-import { useTimeout } from '@vish/useTimeout';
+import { useTimeout } from 'vish-hooks/useTimeout';
 
 const Component = () => {
   const [isReady, cancel, reset] = useTimeout(5000);
@@ -136,7 +136,7 @@ This hook allows you to run an effect only when the component is updated.
 
 ```javascript
 
-import { useUpdateEffect } from '@vish/useUpdateEffect';
+import { useUpdateEffect } from 'vish-hooks/useUpdateEffect';
 
 const Component = () => {
   const [count, setCount] = useState(10);
@@ -160,7 +160,7 @@ This hook allows you to run an effect only once.
 
 ```javascript
 
-import { useEffectOnce } from '@vish/useEffectOnce';
+import { useEffectOnce } from 'vish-hooks/useEffectOnce';
 
 const Component = () => {
   useEffectOnce(() => {
@@ -178,7 +178,7 @@ This hook allows you to detect clicks outside a particular element.
 
 ```javascript
 
-import { useClickOutside } from '@vish/useClickOutside';
+import { useClickOutside } from 'vish-hooks/useClickOutside';
 
 const Component = () => {
   const ref = useRef();
@@ -207,7 +207,7 @@ This hook allows you to manage an array.
 
 ```javascript
 
-import { useArray } from '@vish/useArray';
+import { useArray } from 'vish-hooks/useArray';
 
 const Component = () => {
   const [todos, { push, remove, filter, update }] = useArray([
@@ -237,7 +237,7 @@ This hook allows you to debounce a value.
 
 ```javascript
 
-import { useDebounce } from '@vish/useDebounce';
+import { useDebounce } from 'vish-hooks/useDebounce';
 
 const Component = () => {
   const [value, setValue] = useState('');
@@ -264,7 +264,7 @@ This hook allows you to detect if the mouse is over a particular element.
 
 ```javascript
 
-import { useHover } from '@vish/useHover';
+import { useHover } from 'vish-hooks/useHover';
 
 const Component = () => {
   const [hoverRef, isHovered] = useHover();
