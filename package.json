@@ -17,40 +17,28 @@
     "state"
   ],
   "sideEffects": false,
-  "main": "./cjs/index.cjs",
-  "module": "./esm/index.mjs",
-  "types": "./lib/index.d.ts",
+  "main": "./dist/index.js",
   "exports": {
     ".": {
       "import": {
-        "types": "./lib/index.d.mts",
-        "default": "./esm/index.mjs"
-      },
-      "require": {
-        "types": "./lib/index.d.ts",
-        "default": "./cjs/index.cjs"
+        "default": "./dist/index.js"
       }
     }
   },
   "repository": {
     "url": "https://github.com/princevish/vish-hooks.git",
     "type": "git",
-    "directory": "packages/@vish"
+    "directory": "packages/vish-hooks"
   },
   "peerDependencies": {
     "react": "^18.2.0"
   },
   "devDependencies": {
-    "@types/react": "^18.2.48"
+    "@types/react": "^18.2.48",
+    "typescript": "^4.6.3"
   },
   "scripts": {
     "publish": "npm publish --access=public",
-    "build": "tsc",
-    "test": "jest --coverage",
-    "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage",
-    "test:ci": "jest --ci --coverage",
-    "lint": "eslint . --ext .ts,.tsx",
-    "lint:fix": "eslint . --ext .ts,.tsx --fix"
+    "build": "tsc"
   }
 }
