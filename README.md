@@ -280,3 +280,25 @@ const Component = () => {
   );
 };
 ```
+
+## useFocus
+
+`useFocus` is a custom React hook that allows you to track whether the user's browser is currently focused on your application or not.
+
+```javascript
+
+import React from 'react';
+import { useFocus } from 'vish-hooks';
+
+const Component = () => {
+    const [isFocused, setIsFocused] = useFocus();
+
+    return (
+        <div>
+            {isFocused ? 'The window is focused' : 'The window is not focused'}
+        </div>
+    );
+};
+
+export default Component;
+```
