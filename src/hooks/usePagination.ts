@@ -17,6 +17,14 @@ const NEIGHBORHOOD = 2
 const MAX_SIBLINGS = 3
 const PREVIEW_ITEM_LAST_PAGE = 4
 
+/**
+ * Custom hook for handling pagination logic.
+ *
+ * @param {PaginationProps} totalCount - Total number of items
+ * @param {PaginationProps} pageSize - Number of items per page
+ * @param {PaginationProps} currentPage - Current page number
+ * @return {readonly [number[], string]} An array containing pagination range and dots
+ */
 export const usePagination = ({ totalCount, pageSize, currentPage }: PaginationProps) => {
   const DOTS = useMemo(() => '...', [])
 

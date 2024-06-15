@@ -1,3 +1,6 @@
+export { usePagination } from './hooks/usePagination';
+export { useDeviceDetection } from './hooks/useDeviceDetection';
+export { useQueryParam } from './hooks/useQueryParam';
 export { useIsFirstRender } from './hooks/useIsFirstRender';
 export { useIsMounted } from './hooks/useIsMounted';
 export { usePrevious } from './hooks/usePrevious';

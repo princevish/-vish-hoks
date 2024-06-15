@@ -1,28 +1,19 @@
-import { useCallback, useRef, useState } from "react";
-/**
- * Custom hook that provides a ref and a boolean value indicating whether the element is currently focused.
- *
- * @returns A tuple containing the ref and the isFocused boolean value.
- */
-export function useFocus() {
-    const [isFocused, setFocused] = useState(false);
-    const ref = useRef();
-    const focus = () => {
-        setFocused(true);
-    };
-    const blur = () => {
-        setFocused(false);
-    };
-    const callback = useCallback((node) => {
-        if (ref.current) {
-            ref.current.removeEventListener("focus", focus);
-            ref.current.removeEventListener("blur", blur);
-        }
-        ref.current = node;
-        if (node) {
-            ref.current.addEventListener("focus", focus);
-            ref.current.addEventListener("blur", blur);
-        }
+import { useCallback, useEffect, useState } from 'react';
+export const useFocus = () => {
+    const [isFocused, setIsFocused] = useState(document.hasFocus());
+    const onFocus = useCallback(() => {
+        setIsFocused(true);
     }, []);
-    return [callback, isFocused];
-}
+    const onBlur = useCallback(() => {
+        setIsFocused(false);
+    }, []);
+    useEffect(() => {
+        window.addEventListener('focus', onFocus);
+        window.addEventListener('blur', onBlur);
+        return () => {
+            window.removeEventListener('focus', onFocus);
+            window.removeEventListener('blur', onBlur);
+        };
+    }, []);
+    return [isFocused, setIsFocused];
+};

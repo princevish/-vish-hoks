@@ -2,6 +2,13 @@ import { useCallback, useEffect, useState } from 'react'
 
 const eventListerOptions = { passive: true }
 
+/**
+ * Custom React hook for detecting the device based on window size.
+ *
+ * @return {Object} An object containing the following properties:
+ *   - isMobile: A boolean indicating whether the window size is less than 800 pixels.
+ *   - isDesktop: A boolean indicating whether the window size is not less than 800 pixels.
+ */
 export const useDeviceDetection = () => {
   const [windowSize, setWindowSize] = useState({
     width: 0,

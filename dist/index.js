@@ -1,4 +1,6 @@
-export { useFocus } from './hooks/useFocus';
+export { usePagination } from './hooks/usePagination';
+export { useDeviceDetection } from './hooks/useDeviceDetection';
+export { useQueryParam } from './hooks/useQueryParam';
 export { useIsFirstRender } from './hooks/useIsFirstRender';
 export { useIsMounted } from './hooks/useIsMounted';
 export { usePrevious } from './hooks/usePrevious';
@@ -11,3 +13,4 @@ export { useClickOutside } from './hooks/useClickOutside';
 export { useArray } from './hooks/useArray';
 export { useDebounce } from './hooks/useDebounce';
 export { useHover } from './hooks/useHover';
+export { useFocus } from './hooks/useFocus';
