@@ -2,12 +2,110 @@
 
 This project includes a set of custom React hooks. Here are the hooks and their usage examples:
 
+## usePagination
+
+This hook allows you to manage pagination.
+
+```javascript
+import React, { useState } from "react";
+import { usePagination } from "vish-hooks";
+
+const MyComponent = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const pageSize = 10;
+  const totalCount = 100;
+
+  const [paginationRange, DOTS] = usePagination({
+    totalCount,
+    pageSize,
+    currentPage,
+  });
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
+  return (
+    <div>
+      <ul>
+        {paginationRange.map((pageNumber, index) => (
+          <li key={index}>
+            {pageNumber === DOTS ? (
+              <span>...</span>
+            ) : (
+              <button
+                onClick={() => handlePageChange(pageNumber)}
+                disabled={currentPage === pageNumber}
+              >
+                {pageNumber}
+              </button>
+            )}
+          </li>
+        ))}
+      </ul>
+      {/* Render your content based on the current page and page size */}
+      <div>{/* Content for the current page */}</div>
+    </div>
+  );
+};
+```
+
+## useDeviceDetection
+
+This hook allows you to detect the device type.
+
+```javascript
+import React from "react";
+import { useDeviceDetection } from "vish-hooks";
+
+const MyComponent = () => {
+  const { isMobile, isDesktop } = useDeviceDetection();
+
+  return (
+    <div>
+      {isMobile && <p>You are on a mobile device.</p>}
+      {isDesktop && <p>You are on a desktop device.</p>}
+    </div>
+  );
+};
+```
+
+## useQueryParam
+
+This hook allows you to manage query params.
+
+```javascript
+import React from "react";
+import { useQueryParam } from "vish-hooks";
+
+const MyComponent = () => {
+  const [searchQuery, setSearchQuery] = useQueryParam("q", "");
+
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
+  return (
+    <div>
+      <input
+        type="text"
+        value={searchQuery}
+        onChange={handleSearchChange}
+        placeholder="Search..."
+      />
+      <p>Current search query: {searchQuery}</p>
+    </div>
+  );
+};
+
+```
+
 ## useFocus
 
 This hook allows you to manage focus on a particular element.
 
 ```javascript
-import { useFocus } from 'vish-hooks';
+import { useFocus } from "vish-hooks";
 
 const Component = () => {
   const [ref, isFocused] = useFocus();
@@ -21,12 +119,12 @@ const Component = () => {
 This hook allows you to check if the component is rendered for the first time.
 
 ```javascript
-import { useIsFirstRender } from 'vish-hooks';
+import { useIsFirstRender } from "vish-hooks";
 
 const Component = () => {
   const isFirstRender = useIsFirstRender();
 
-  return <div>{isFirstRender ? 'First Render' : 'Not First Render'}</div>;
+  return <div>{isFirstRender ? "First Render" : "Not First Render"}</div>;
 };
 ```
 
@@ -35,23 +133,21 @@ const Component = () => {
 This hook allows you to check if the component is mounted.
 
 ```javascript
-import { useIsMounted } from 'vish-hooks';
+import { useIsMounted } from "vish-hooks";
 
 const Component = () => {
   const isMounted = useIsMounted();
 
-  return <div>{isMounted ? 'Mounted' : 'Not Mounted'}</div>;
+  return <div>{isMounted ? "Mounted" : "Not Mounted"}</div>;
 };
 ```
-
 
 ## usePrevious
 
 This hook allows you to get the previous value of a state.
 
 ```javascript
-
-import { usePrevious } from 'vish-hooks';
+import { usePrevious } from "vish-hooks";
 
 const Component = () => {
   const [count, setCount] = useState(0);
@@ -59,25 +155,26 @@ const Component = () => {
 
   return (
     <div>
-      <p>Current: {count} - Previous: {prevCount}</p>
+      <p>
+        Current: {count} - Previous: {prevCount}
+      </p>
       <button onClick={() => setCount(count + 1)}>Increment</button>
     </div>
   );
 };
 ```
 
-
-
 ## useSWR
 
 This hook allows you to fetch data using SWR.
 
 ```javascript
-
-import { useSWR } from 'vish-hooks';
+import { useSWR } from "vish-hooks";
 
 const Component = () => {
-  const { data, error } = useSWR('https://jsonplaceholder.typicode.com/todos/1');
+  const { data, error } = useSWR(
+    "https://jsonplaceholder.typicode.com/todos/1"
+  );
 
   if (error) return <div>failed to load</div>;
   if (!data) return <div>loading...</div>;
@@ -86,43 +183,38 @@ const Component = () => {
 };
 ```
 
-
 ## useToggle
 
 This hook allows you to toggle between two states.
 
 ```javascript
-
-import { useToggle } from 'vish-hooks';
+import { useToggle } from "vish-hooks";
 
 const Component = () => {
   const [isOn, toggleIsOn] = useToggle(false);
 
   return (
     <div>
-      <p>{isOn ? 'ON' : 'OFF'}</p>
+      <p>{isOn ? "ON" : "OFF"}</p>
       <button onClick={toggleIsOn}>Toggle</button>
     </div>
   );
 };
 ```
 
-
-
 ## useTimeout
 
 This hook allows you to set a timeout.
 
 ```javascript
-
-import { useTimeout } from 'vish-hooks';
+import { useTimeout } from "vish-hooks";
 
 const Component = () => {
   const [isReady, cancel, reset] = useTimeout(5000);
 
   return (
     <div>
-      <p>{isReady ? 'Ready' : 'Not Ready'}</p>
+      <p>{isReady ? "Ready" : "Not Ready"}</p>
       <button onClick={cancel}>Cancel</button>
       <button onClick={reset}>Reset</button>
     </div>
@@ -135,14 +227,13 @@ const Component = () => {
 This hook allows you to run an effect only when the component is updated.
 
 ```javascript
-
-import { useUpdateEffect } from 'vish-hooks';
+import { useUpdateEffect } from "vish-hooks";
 
 const Component = () => {
   const [count, setCount] = useState(10);
 
   useUpdateEffect(() => {
-    console.log('Updated');
+    console.log("Updated");
   }, [count]);
 
   return (
@@ -159,26 +250,23 @@ const Component = () => {
 This hook allows you to run an effect only once.
 
 ```javascript
-
-import { useEffectOnce } from 'vish-hooks';
+import { useEffectOnce } from "vish-hooks";
 
 const Component = () => {
   useEffectOnce(() => {
-    console.log('Mounted');
+    console.log("Mounted");
   });
 
   return <div>Mounted</div>;
 };
 ```
 
-
 ## useClickOutside
 
 This hook allows you to detect clicks outside a particular element.
 
 ```javascript
-
-import { useClickOutside } from 'vish-hooks';
+import { useClickOutside } from "vish-hooks";
 
 const Component = () => {
   const ref = useRef();
@@ -200,28 +288,32 @@ const Component = () => {
 };
 ```
 
-
 ## useArray
 
 This hook allows you to manage an array.
 
 ```javascript
-
-import { useArray } from 'vish-hooks';
+import { useArray } from "vish-hooks";
 
 const Component = () => {
   const [todos, { push, remove, filter, update }] = useArray([
-    { id: 1, text: 'Learn React' },
-    { id: 2, text: 'Learn Firebase' },
-    { id: 3, text: 'Learn GraphQL' },
+    { id: 1, text: "Learn React" },
+    { id: 2, text: "Learn Firebase" },
+    { id: 3, text: "Learn GraphQL" },
   ]);
 
   return (
     <div>
-      <button onClick={() => push({ id: 4, text: 'Learn Hooks' })}>Add Todo</button>
-      <button onClick={() => update(1, { id: 1, text: 'Learn Hooks' })}>Update Todo</button>
+      <button onClick={() => push({ id: 4, text: "Learn Hooks" })}>
+        Add Todo
+      </button>
+      <button onClick={() => update(1, { id: 1, text: "Learn Hooks" })}>
+        Update Todo
+      </button>
       <button onClick={() => remove(1)}>Remove Todo</button>
-      <button onClick={() => filter((todo) => todo.id !== 1)}>Remove Todo</button>
+      <button onClick={() => filter((todo) => todo.id !== 1)}>
+        Remove Todo
+      </button>
       {todos.map((todo) => (
         <div key={todo.id}>{todo.text}</div>
       ))}
@@ -230,17 +322,15 @@ const Component = () => {
 };
 ```
 
-
 ## useDebounce
 
 This hook allows you to debounce a value.
 
 ```javascript
-
-import { useDebounce } from 'vish-hooks';
+import { useDebounce } from "vish-hooks";
 
 const Component = () => {
-  const [value, setValue] = useState('');
+  const [value, setValue] = useState("");
   const debouncedValue = useDebounce(value, 500);
 
   return (
@@ -263,19 +353,14 @@ const Component = () => {
 This hook allows you to detect if the mouse is over a particular element.
 
 ```javascript
-
-import { useHover } from 'vish-hooks';
+import { useHover } from "vish-hooks";
 
 const Component = () => {
   const [hoverRef, isHovered] = useHover();
 
   return (
     <div ref={hoverRef}>
-      {isHovered ? (
-        <p>Move the mouse out of here!</p>
-      ) : (
-        <p>Hover over me!</p>
-      )}
+      {isHovered ? <p>Move the mouse out of here!</p> : <p>Hover over me!</p>}
     </div>
   );
 };
@@ -286,18 +371,17 @@ const Component = () => {
 `useFocus` is a custom React hook that allows you to track whether the user's browser is currently focused on your application or not.
 
 ```javascript
-
-import React from 'react';
-import { useFocus } from 'vish-hooks';
+import React from "react";
+import { useFocus } from "vish-hooks";
 
 const Component = () => {
-    const [isFocused, setIsFocused] = useFocus();
+  const [isFocused, setIsFocused] = useFocus();
 
-    return (
-        <div>
-            {isFocused ? 'The window is focused' : 'The window is not focused'}
-        </div>
-    );
+  return (
+    <div>
+      {isFocused ? "The window is focused" : "The window is not focused"}
+    </div>
+  );
 };
 
 export default Component;
