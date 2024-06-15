@@ -100,15 +100,15 @@ const MyComponent = () => {
 
 ```
 
-## useFocus
+## useFocusRef
 
 This hook allows you to manage focus on a particular element.
 
 ```javascript
-import { useFocus } from "vish-hooks";
+import { useFocusRef } from "vish-hooks";
 
 const Component = () => {
-  const [ref, isFocused] = useFocus();
+  const [ref, isFocused] = useFocusRef();
 
   return <input ref={ref} />;
 };
@@ -383,6 +383,4 @@ const Component = () => {
     </div>
   );
 };
-
-export default Component;
 ```

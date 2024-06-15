@@ -3,9 +3,9 @@ import { Ref, useCallback, useRef, useState } from "react";
 /**
  * Custom hook that provides a ref and a boolean value indicating whether the element is currently focused.
  *
- * @returns A tuple containing the ref and the isFocused boolean value.
+ * @returns A tuple containing the ref and the useFocusRef boolean value.
  */
-export function useFocus<T extends HTMLElement>(): [Ref<T>, boolean] {
+export function useFocusRef<T extends HTMLElement>(): [Ref<T>, boolean] {
   const [isFocused, setFocused] = useState(false);
   const ref = useRef<T>();
   const focus = () => {
