@@ -2,6 +2,28 @@
 
 This project includes a set of custom React hooks. Here are the hooks and their usage examples:
 
+## Table of Contents
+
+- [Vish-hooks React Hooks](#vish-hooks-react-hooks)
+  - [Table of Contents](#table-of-contents)
+  - [usePagination](#usepagination)
+  - [useDeviceDetection](#usedevicedetection)
+  - [useQueryParam](#usequeryparam)
+  - [useFocusRef](#usefocusref)
+  - [useIsFirstRender](#useisfirstrender)
+  - [useIsMounted](#useismounted)
+  - [usePrevious](#useprevious)
+  - [useSWR](#useswr)
+  - [useToggle](#usetoggle)
+  - [useTimeout](#usetimeout)
+  - [useUpdateEffect](#useupdateeffect)
+  - [useEffectOnce](#useeffectonce)
+  - [useClickOutside](#useclickoutside)
+  - [useArray](#usearray)
+  - [useDebounce](#usedebounce)
+  - [useHover](#usehover)
+  - [useFocus](#usefocus)
+
 ## usePagination
 
 This hook allows you to manage pagination.
