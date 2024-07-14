@@ -1,10 +1,17 @@
-# Vish-hooks React Hooks
+# Notice: Package Deprecation
+
+> We would like to inform you that the 'vish-hooks' package is now deprecated. We recommend trying our new '@princevish/vish-hooks2' package, which offers an enhanced experience with more features.
+
+> Thank you for your understanding and continued support.
+
+## Vish-hooks React Hooks
 
 This project includes a set of custom React hooks. Here are the hooks and their usage examples:
 
 ## Table of Contents
 
-- [Vish-hooks React Hooks](#vish-hooks-react-hooks)
+- [Notice: Package Deprecation](#notice-package-deprecation)
+  - [Vish-hooks React Hooks](#vish-hooks-react-hooks)
   - [Table of Contents](#table-of-contents)
   - [usePagination](#usepagination)
   - [useDeviceDetection](#usedevicedetection)
