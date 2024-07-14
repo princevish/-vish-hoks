@@ -14,3 +14,4 @@ export { useArray } from './hooks/useArray';
 export { useDebounce } from './hooks/useDebounce';
 export { useHover } from './hooks/useHover';
 export { useFocus } from './hooks/useFocus';
+export { useFocusRef } from "./hooks/useFocusRef";
